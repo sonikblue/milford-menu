@@ -29,3 +29,11 @@ jobs:
     - run: npm run build
     - run: npm run test:unit
     - run: npm run test:e2e
+    - name: Upload Cypress evidence
+      uses: actions/upload-artifact@v3
+      with:
+        name: cypress-evidence
+        path: |
+          cypress/screenshots
+          cypress/videos
+        if-no-files-found: ignore
