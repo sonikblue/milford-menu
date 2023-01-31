@@ -1,29 +1,44 @@
+# This workflow will build the source code, authenticate with Azure and then upload the built application to a storage account
+
 name: Deploy Static Site
 
 on:
-  push:
-    branches: [ main ]
+  workflow_run:
+    workflows: ["Node.js CI"]
+    types: [completed]
+    branches: [main]
 
 jobs:
-  build:
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     runs-on: ubuntu-latest
 
-    environment: 
+    environment:
       name: Production
       url: https://milfordmenu.z35.web.core.windows.net/
 
     steps:
-    - uses: actions/checkout@v3
-    - uses: azure/login@v1
-      with:
-        creds: ${{ secrets.MILFORD_MENU_SERVICE_PRINCIPLE }}
-    - name: Upload to blob storage
-      uses: azure/CLI@v1
-      with:
-        inlineScript: |
-          az storage blob upload-batch --account-name ${{ vars.MILFORD_MENU_STORAGE_ACCOUNT_NAME }} --auth-mode key -d '$web' -s .
-    - name: Logout of Azure
-      run: |
-        az logout
-      if: always()
+      - uses: actions/checkout@v3
+
+      # Build the application
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: "npm"
+      - run: npm ci
+      - run: npm run build-only
+
+      # Upload to Azure
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.MILFORD_MENU_SERVICE_PRINCIPLE }}
+      - name: Upload to blob storage
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az storage blob upload-batch --account-name ${{ vars.MILFORD_MENU_STORAGE_ACCOUNT_NAME }} --auth-mode key -d '$web' -s dist
+      - name: Logout of Azure
+        run: |
+          az logout
+        if: always()
