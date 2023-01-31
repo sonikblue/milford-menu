@@ -14,7 +14,7 @@ export default {
   </header>
 
   <main>
-    <HelloWorld message="Hello world!" />
+    <HelloWorld message="Hello Milford!" />
   </main>
 </template>
 
