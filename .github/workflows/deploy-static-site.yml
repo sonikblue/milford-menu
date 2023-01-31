@@ -40,7 +40,7 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            az storage blob upload-batch --account-name ${{ vars.MILFORD_MENU_STORAGE_ACCOUNT_NAME }} --auth-mode key -d '$web' -s dist
+            az storage blob upload-batch --account-name ${{ vars.MILFORD_MENU_STORAGE_ACCOUNT_NAME }} --auth-mode key -d '$web' -s dist --overwrite true
       - name: Logout of Azure
         run: |
           az logout
