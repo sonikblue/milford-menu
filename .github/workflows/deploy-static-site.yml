@@ -1,0 +1,29 @@
+name: Deploy Static Site
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    environment: 
+      name: Production
+      url: https://milfordmenu.z35.web.core.windows.net/
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.MILFORD_MENU_SERVICE_PRINCIPLE }}
+    - name: Upload to blob storage
+      uses: azure/CLI@v1
+      with:
+        inlineScript: |
+          az storage blob upload-batch --account-name ${{ vars.MILFORD_MENU_STORAGE_ACCOUNT_NAME }} --auth-mode key -d '$web' -s .
+    - name: Logout of Azure
+      run: |
+        az logout
+      if: always()
