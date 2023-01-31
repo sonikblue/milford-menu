@@ -6,7 +6,7 @@ on:
   workflow_run:
     workflows: ["Node.js CI"]
     types: [completed]
-    branches: [main, add-deployment-pipeline]
+    branches: [main]
 
 jobs:
   deploy:
