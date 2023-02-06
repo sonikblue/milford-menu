@@ -1,6 +1,6 @@
 # milford-menu
 
-This template should help get you started developing with Vue 3 in Vite.
+A simple Vue app to show a school menu.
 
 ## Recommended IDE Setup
 
@@ -66,3 +66,16 @@ npm run test:e2e
 ```sh
 npm run lint
 ```
+
+### Git Hooks
+[Husky](https://typicode.github.io/husky) is used to enable git hooks for this repository. They will be automatically enabled when running `npm install`.
+
+These hooks perform certain recommended validations (linting, running the unit tests, etc.) before commit, and will block a commit if one of these validations fails. See the files in the [.husky](.husky) directory for the full list of commands executed.
+
+#### Bypassing Hooks
+If you need to bypass the git hooks for some reason (please make sure you at least understand why!), you can use the `--no-verify` argument to certain Git commands. E.g.:
+```bash
+git commit -m "This commit is unverified!" --no-verify
+```
+
+See the [Husky documentation](https://typicode.github.io/husky/#/?id=bypass-hooks) for full details.
