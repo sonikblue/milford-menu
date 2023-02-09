@@ -27,6 +27,11 @@ jobs:
       - run: npm run lint
       - run: npm run build
       - run: npm run test:unit
+      - name: Upload unit test coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: unit-test-coverage-report
+          path: src/coverage
       - run: npm run test:e2e
       - name: Upload Cypress evidence
         uses: actions/upload-artifact@v3

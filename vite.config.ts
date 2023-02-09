@@ -12,11 +12,12 @@ export default defineConfig({
     },
   },
   test: {
+    root: "src/",
     environment: "jsdom",
     coverage: {
       enabled: true,
       all: true,
-      reporter: ["text", "json", "html"],
+      reporter: ["text", "html"],
     },
   },
 });
