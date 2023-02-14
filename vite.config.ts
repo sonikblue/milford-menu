@@ -17,6 +17,13 @@ export default defineConfig({
     coverage: {
       enabled: true,
       all: true,
+      src: ["src"],
+      "100": true,
+      exclude: [
+        "**/__tests__/**", // Don't check test coverage of tests
+
+        "src/main.ts", // Covered by E2E tests
+      ],
       reporter: ["text", "html"],
     },
   },
