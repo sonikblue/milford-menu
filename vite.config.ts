@@ -23,6 +23,8 @@ export default defineConfig({
         "**/__tests__/**", // Don't check test coverage of tests
 
         "src/main.ts", // Covered by E2E tests
+        "src/service/menuService.ts", // Interface definitions only
+        "src/types/**", // Type definitions only
       ],
       reporter: ["text", "html"],
     },

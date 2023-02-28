@@ -1,4 +1,8 @@
 import { createApp } from "vue";
 import App from "./App.vue";
+import { FixedMenuService } from "./service/fixedMenuService";
+import type { MenuService } from "./service/menuService";
 
-createApp(App).mount("#app");
+const menuService: MenuService = new FixedMenuService();
+
+createApp(App, { menuService }).mount("#app");

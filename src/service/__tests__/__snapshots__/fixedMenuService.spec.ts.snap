@@ -1,0 +1,49 @@
+// Vitest Snapshot v1
+
+exports[`FixedMenuService > Should return a fixed value for any menu date 1`] = `
+{
+  "desserts": [
+    {
+      "description": "Cinnamon roll",
+    },
+  ],
+  "mains": [
+    {
+      "description": "Pasta bolognese",
+    },
+    {
+      "description": "Jacket potato with cheese, beans or tuna",
+    },
+    {
+      "description": "Cheese & ham panini",
+    },
+    {
+      "description": "Veggie pasta bolognese",
+    },
+  ],
+}
+`;
+
+exports[`FixedMenuService > Should return a fixed value for today's menu 1`] = `
+{
+  "desserts": [
+    {
+      "description": "Cinnamon roll",
+    },
+  ],
+  "mains": [
+    {
+      "description": "Pasta bolognese",
+    },
+    {
+      "description": "Jacket potato with cheese, beans or tuna",
+    },
+    {
+      "description": "Cheese & ham panini",
+    },
+    {
+      "description": "Veggie pasta bolognese",
+    },
+  ],
+}
+`;
