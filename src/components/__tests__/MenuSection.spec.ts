@@ -8,6 +8,7 @@ describe("MenuSection", () => {
 
     const wrapper = mount(MenuSection, {
       slots: { default: slotText },
+      props: { items: [] },
     });
 
     expect(wrapper.find("h2").text()).toBe(slotText);
