@@ -26,8 +26,8 @@ describe("MenuSection", () => {
 
     const listItems = wrapper.findAll("li");
     expect(listItems.length).toBe(2);
-    expect(listItems.at(0)?.text()).toBe(itemOneText);
-    expect(listItems.at(1)?.text()).toBe(itemTwoText);
+    expect(listItems[0]?.text()).toBe(itemOneText);
+    expect(listItems[1]?.text()).toBe(itemTwoText);
   });
 
   it("renders properly with an empty list of items", () => {

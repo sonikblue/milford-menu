@@ -21,7 +21,7 @@ describe("MenuPanel", () => {
 
     const menuSections = wrapper.findAllComponents(MenuSection);
     expect(menuSections.length).toBe(2);
-    expect(menuSections.at(0)?.props().items).toEqual(mains);
-    expect(menuSections.at(1)?.props().items).toEqual(desserts);
+    expect(menuSections[0]?.props().items).toEqual(mains);
+    expect(menuSections[1]?.props().items).toEqual(desserts);
   });
 });
