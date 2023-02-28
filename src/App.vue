@@ -1,19 +1,14 @@
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, type PropType } from "vue";
 import MenuPanel from "./components/MenuPanel.vue";
+import type { MenuService } from "./service/menuService";
 
 export default defineComponent({
-  data() {
-    return {
-      // TODO: Wire in menu service. Create it here? What part of the lifecycle?
-      menu: {
-        mains: [
-          { description: "Spaghetti Bolognese" },
-          { description: "Jacket potato with beans and cheese" },
-        ],
-        desserts: [{ description: "Cinnamon roll" }],
-      },
-    };
+  props: {
+    menuService: {
+      type: Object as PropType<MenuService>,
+      required: true,
+    },
   },
   components: {
     MenuPanel,
@@ -27,7 +22,7 @@ export default defineComponent({
   </header>
 
   <main>
-    <MenuPanel :menu="menu" />
+    <MenuPanel :menu="menuService.todaysMenu()" />
   </main>
 </template>
 
