@@ -24,6 +24,7 @@ export default defineConfig({
 
         "src/main.ts", // Covered by E2E tests
         "src/service/menuService.ts", // Interface definitions only
+        "src/types/**", // Type definitions only
       ],
       reporter: ["text", "html"],
     },

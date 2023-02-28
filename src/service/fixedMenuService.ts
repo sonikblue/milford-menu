@@ -1,4 +1,5 @@
-import type { Menu, MenuService } from "./menuService";
+import type { Menu } from "@/types/menu";
+import type { MenuService } from "./menuService";
 
 const fixedMenu = {
   mains: [

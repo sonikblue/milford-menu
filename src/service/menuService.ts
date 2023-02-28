@@ -1,12 +1,4 @@
-export interface MenuItem {
-  description: string;
-}
-
-export interface Menu {
-  mains: MenuItem[];
-
-  desserts: MenuItem[];
-}
+import type { Menu } from "@/types/menu";
 
 export interface MenuService {
   todaysMenu: () => Menu;
