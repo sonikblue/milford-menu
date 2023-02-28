@@ -1,11 +1,19 @@
 <script lang="ts">
-import HelloWorld from "./components/HelloWorld.vue";
+import { defineComponent, type PropType } from "vue";
+import MenuPanel from "./components/MenuPanel.vue";
+import type { MenuService } from "./service/menuService";
 
-export default {
-  components: {
-    HelloWorld,
+export default defineComponent({
+  props: {
+    menuService: {
+      type: Object as PropType<MenuService>,
+      required: true,
+    },
   },
-};
+  components: {
+    MenuPanel,
+  },
+});
 </script>
 
 <template>
@@ -14,7 +22,7 @@ export default {
   </header>
 
   <main>
-    <HelloWorld message="Hello Milford!" />
+    <MenuPanel :menu="menuService.todaysMenu()" />
   </main>
 </template>
 
@@ -29,6 +37,6 @@ header h1 {
 }
 
 main {
-  text-align: center;
+  text-align: left;
 }
 </style>
