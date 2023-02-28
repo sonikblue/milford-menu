@@ -1,13 +1,19 @@
 <script lang="ts">
-import { defineComponent } from "vue";
+import type { Menu } from "@/types/menu";
+import { defineComponent, type PropType } from "vue";
+import MenuSection from "./MenuSection.vue";
 
 export default defineComponent({
+  components: {
+    MenuSection,
+  },
   props: {
-    menu: String, // TODO: This needs to be our Menu type
+    menu: { type: Object as PropType<Menu>, required: true },
   },
 });
 </script>
 
 <template>
-  <div>{{ menu }}</div>
+  <MenuSection :items="menu.mains">Main Courses</MenuSection>
+  <MenuSection :items="menu.desserts">Desserts</MenuSection>
 </template>

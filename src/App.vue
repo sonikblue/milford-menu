@@ -1,11 +1,24 @@
 <script lang="ts">
+import { defineComponent } from "vue";
 import MenuPanel from "./components/MenuPanel.vue";
 
-export default {
+export default defineComponent({
+  data() {
+    return {
+      // TODO: Wire in menu service. Create it here? What part of the lifecycle?
+      menu: {
+        mains: [
+          { description: "Spaghetti Bolognese" },
+          { description: "Jacket potato with beans and cheese" },
+        ],
+        desserts: [{ description: "Cinnamon roll" }],
+      },
+    };
+  },
   components: {
     MenuPanel,
   },
-};
+});
 </script>
 
 <template>
@@ -14,7 +27,7 @@ export default {
   </header>
 
   <main>
-    <MenuPanel menu="Menu goes here" />
+    <MenuPanel :menu="menu" />
   </main>
 </template>
 
@@ -29,6 +42,6 @@ header h1 {
 }
 
 main {
-  text-align: center;
+  text-align: left;
 }
 </style>
