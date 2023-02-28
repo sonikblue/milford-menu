@@ -1,9 +1,9 @@
 <script lang="ts">
-import HelloWorld from "./components/HelloWorld.vue";
+import MenuPanel from "./components/MenuPanel.vue";
 
 export default {
   components: {
-    HelloWorld,
+    MenuPanel,
   },
 };
 </script>
@@ -14,7 +14,7 @@ export default {
   </header>
 
   <main>
-    <HelloWorld message="Hello Milford!" />
+    <MenuPanel menu="Menu goes here" />
   </main>
 </template>
 

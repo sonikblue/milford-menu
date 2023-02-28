@@ -3,11 +3,11 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   props: {
-    message: String,
+    menu: String, // TODO: This needs to be our Menu type
   },
 });
 </script>
 
 <template>
-  <div>{{ message }}</div>
+  <div>{{ menu }}</div>
 </template>
