@@ -17,14 +17,13 @@ export default defineConfig({
     coverage: {
       enabled: true,
       all: true,
-      src: ["src"],
       "100": true,
       exclude: [
         "**/__tests__/**", // Don't check test coverage of tests
 
-        "src/main.ts", // Covered by E2E tests
-        "src/service/menuService.ts", // Interface definitions only
-        "src/types/**", // Type definitions only
+        "main.ts", // Covered by E2E tests
+        "service/menuService.ts", // Interface definitions only
+        "types/**", // Type definitions only
       ],
       reporter: ["text", "html"],
     },
