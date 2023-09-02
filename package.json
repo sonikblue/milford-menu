@@ -30,7 +30,7 @@
     "@vue/tsconfig": "^0.4.0",
     "cypress": "^12.17.3",
     "eslint": "^8.47.0",
-    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-cypress": "^2.14.0",
     "eslint-plugin-vue": "^9.17.0",
     "husky": "^8.0.3",
     "is-ci": "^3.0.1",
