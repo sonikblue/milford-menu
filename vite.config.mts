@@ -15,9 +15,12 @@ export default defineConfig({
     root: "src/",
     environment: "jsdom",
     coverage: {
+      provider: "v8",
       enabled: true,
       all: true,
-      "100": true,
+      thresholds: {
+        "100": true,
+      },
       exclude: [
         "**/__tests__/**", // Don't check test coverage of tests
 
