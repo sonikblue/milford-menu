@@ -20,7 +20,7 @@ describe("App", () => {
     const wrapper = mount(App, { props: { menuService } });
 
     expect(wrapper.findComponent(MenuPanel).props().menu).toBe(
-      menuService.todaysMenu()
+      menuService.todaysMenu(),
     );
   });
 });
