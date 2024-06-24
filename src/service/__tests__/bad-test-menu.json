@@ -1,0 +1,8 @@
+{
+  "badNumber": 1234,
+  "badString": "foo",
+  "badObject": {
+    "firstThing": 5678,
+    "secondThing": "bar"
+  }
+}
