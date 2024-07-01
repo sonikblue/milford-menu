@@ -16,7 +16,7 @@
     "prepare": "is-ci || husky"
   },
   "dependencies": {
-    "vue": "^3.2.47"
+    "vue": "^3.4.31"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.10.2",
