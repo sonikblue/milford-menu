@@ -1,9 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { FileMenuService } from "../fileMenuService";
 import type { MenuService } from "../menuService";
-
-const TEST_MENU_FILE_NAME = "src/service/__tests__/test-menu.json";
-const BAD_MENU_FILE_NAME = "src/service/__tests__/bad-test-menu.json";
+import { testMenu } from "./testMenu";
 
 describe("FileMenuService", () => {
   beforeEach(() => {
@@ -15,10 +13,8 @@ describe("FileMenuService", () => {
   });
 
   it("Should return the expected value for today's menu", () => {
-    vi.setSystemTime(new Date("2020-03-06"));
-    const fileMenuService: MenuService = new FileMenuService(
-      TEST_MENU_FILE_NAME,
-    );
+    vi.setSystemTime(new Date("2017-06-30"));
+    const fileMenuService: MenuService = new FileMenuService(testMenu);
 
     const menu = fileMenuService.todaysMenu();
 
@@ -26,15 +22,15 @@ describe("FileMenuService", () => {
       {
         "desserts": [
           {
-            "description": "Cinnamon roll",
+            "description": "Baz Delight",
           },
         ],
         "mains": [
           {
-            "description": "Pasta bolognese",
+            "description": "Foo Burger",
           },
           {
-            "description": "Jacket potato with cheese, beans or tuna",
+            "description": "Bar Salad",
           },
         ],
       }
@@ -42,9 +38,7 @@ describe("FileMenuService", () => {
   });
 
   it("Should return the expected value for a given menu date", () => {
-    const fileMenuService: MenuService = new FileMenuService(
-      TEST_MENU_FILE_NAME,
-    );
+    const fileMenuService: MenuService = new FileMenuService(testMenu);
 
     const menu = fileMenuService.menuFor(new Date("2020-03-07"));
 
@@ -52,32 +46,15 @@ describe("FileMenuService", () => {
       {
         "desserts": [
           {
-            "description": "Cake and Custard",
+            "description": "Buzz Salad",
           },
         ],
         "mains": [
           {
-            "description": "Cheese & ham panini",
-          },
-          {
-            "description": "Veggie pasta bolognese",
+            "description": "Fizz Burger",
           },
         ],
       }
     `);
   });
-
-  it("should throw an error if the menu file cannot be found", () => {
-    expect(() => new FileMenuService("unknown-file.json")).toThrowError();
-  });
-
-  it("should throw an error if the menu file is not the correct shape", () => {
-    expect(() => new FileMenuService(BAD_MENU_FILE_NAME)).toThrowError();
-  });
-});
-
-describe("isFileMenu", () => {
-  it.todo("should fail if a bad type is passed");
-
-  // TODO: Work out test cases!
 });
